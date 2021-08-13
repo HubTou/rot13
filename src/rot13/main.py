@@ -10,7 +10,7 @@ import os
 import sys
 
 # Version string used by the what(1) and ident(1) commands:
-ID = "@(#) $Id: rot13 - encrypt or decrypt caesar ciphers v1.0.1 (August 13, 2021) by Hubert Tournier $"
+ID = "@(#) $Id: rot13 - encrypt or decrypt caesar ciphers v1.0.2 (August 13, 2021) by Hubert Tournier $"
 
 # Default parameters. Can be overcome by environment variables, then command line options
 parameters = {
@@ -168,7 +168,7 @@ def main():
             else:
                 print(
                     rot(
-                        line,
+                        argument,
                         rotation=parameters["Rotation"],
                         character_set=parameters["Character set"]
                     )
