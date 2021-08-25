@@ -1,4 +1,5 @@
 NAME=rot13
+SECTION=6
 SOURCES=main.py
 DESTROOTDIR=/usr/local
 
@@ -42,16 +43,16 @@ checks: check-code check-security check-unused check-version check-sloc
 format: /usr/local/bin/black
 	black ${SOURCES}
 
-${NAME}.6.gz: ../../man/${NAME}.6
-	@gzip -k9c ../../man/${NAME}.6 > ${NAME}.6.gz
+${NAME}.${SECTION}.gz: ../../man/${NAME}.${SECTION}
+	@gzip -k9c ../../man/${NAME}.${SECTION} > ${NAME}.${SECTION}.gz
 
-install: ${NAME}.6.gz
+install: ${NAME}.${SECTION}.gz
 	install -m 0755 -o root -g wheel main.py ${DESTROOTDIR}/bin/${NAME}
-	install -m 0644 -o root -g wheel ${NAME}.6.gz ${DESTROOTDIR}/man/man6
+	install -m 0644 -o root -g wheel ${NAME}.${SECTION}.gz ${DESTROOTDIR}/man/man${SECTION}
 
 uninstall:
 	rm -f ${DESTROOTDIR}/bin/${NAME}
-	rm -f ${DESTROOTDIR}/man/man6/${NAME}.6.gz
+	rm -f ${DESTROOTDIR}/man/man${SECTION}/${NAME}.${SECTION}.gz
 
 whatis:
 	makewhatis
@@ -60,7 +61,7 @@ love:
 	@echo "Not war!"
 
 clean:
-	@rm -f ${NAME}.6.gz
+	@rm -f ${NAME}.${SECTION}.gz
 
 distclean: clean
 

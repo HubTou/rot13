@@ -1,7 +1,7 @@
 # Installation
 pip install [pnu-rot13](https://pypi.org/project/pnu-rot13/)
 
-# ROT13(1)
+# ROT13(6)
 
 ## NAME
 rot13 — encrypt or decrypt caesar ciphers
