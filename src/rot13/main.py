@@ -10,7 +10,7 @@ import os
 import sys
 
 # Version string used by the what(1) and ident(1) commands:
-ID = "@(#) $Id: rot13 - encrypt or decrypt caesar ciphers v1.0.3 (August 25, 2021) by Hubert Tournier $"
+ID = "@(#) $Id: rot13 - encrypt or decrypt caesar ciphers v1.0.4 (September 26, 2021) by Hubert Tournier $"
 
 # Default parameters. Can be overcome by environment variables, then command line options
 parameters = {
@@ -18,6 +18,14 @@ parameters = {
     "Rotation": 13,
     "Command flavour": "",
 }
+
+
+################################################################################
+def _initialize_debugging(program_name):
+    """Debugging set up"""
+    console_log_format = program_name + ": %(levelname)s: %(message)s"
+    logging.basicConfig(format=console_log_format, level=logging.DEBUG)
+    logging.disable(logging.INFO)
 
 
 ################################################################################
@@ -145,10 +153,8 @@ def rot(text, rotation=13, character_set="alphabetical"):
 def main():
     """The program's main entry point"""
     program_name = os.path.basename(sys.argv[0])
-    console_log_format = program_name + ": %(levelname)s: %(message)s"
-    logging.basicConfig(format=console_log_format, level=logging.DEBUG)
-    logging.disable(logging.INFO)
 
+    _initialize_debugging(program_name)
     _process_environment_variables()
     arguments = _process_command_line()
 
