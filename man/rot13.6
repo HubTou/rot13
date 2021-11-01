@@ -28,7 +28,7 @@
 .\"	@(#)caesar.6	8.2 (Berkeley) 11/16/93
 .\" $FreeBSD$
 .\"
-.Dd August 12, 2021
+.Dd November 1, 2021
 .Dt ROT13 6
 .Os
 .Sh NAME
@@ -37,7 +37,7 @@
 .Sh SYNOPSIS
 .Nm
 .Op Fl p|--printable
-.Op Fl r|--rotate Ar number
+.Op Fl r|--rotate Ar NUMBER
 .Op Fl -debug
 .Op Fl -help|-?
 .Op Fl -version
@@ -61,8 +61,8 @@ will rotate this string.
 .Op Fl p|--printable
 Rotate all printable ASCII characters instead of just the alphabetical ones
 .Pp
-.Op Fl r|--rotate Ar number
-Rotate ''number'' characters instead of 13
+.Op Fl r|--rotate Ar NUMBER
+Rotate NUMBER characters instead of 13
 .Pp
 .Op Fl -debug
 Enable debug mode
@@ -78,12 +78,24 @@ Options processing terminator
 .Sh ENVIRONMENT
 The
 .Ev ROT13_DEBUG
-environment variable can also be set to any value to enable debug mode.
+environment variable can be set to any value to enable debug mode.
+.Pp
+The
+.Ev FLAVOUR
+or
+.Ev ROT13_FLAVOUR
+environment variables can be set to one of the following values, to implement only the corresponding options and behaviours.
+.Bl -bullet
+.It
+bsd | bsd:freebsd : FreeBSD caesar(6) or rot13(6)
+.El
 .Sh EXIT STATUS
 .Ex -std rot13
 .Sh SEE ALSO
 .Xr caesar 6 ,
-.Xr fortune 6
+.Xr fortune 6 ,
+.Xr rot13 3 ,
+.Xr tr 1
 .Sh STANDARDS
 The
 .Nm
@@ -99,6 +111,16 @@ and some of the databases used by the
 .Xr fortune 6
 program are rotated by 13 characters.
 .Pp
+A program to decrypt caesar cyphers, called decrypt, was contributed to
+.Bx 4.2
+by Rick Adams in September 1982.
+Its authors were Stan King and John Eldridge, working on an algorithm suggested by Bob Morris.
+That software became the caesar(6) game in
+.Bx 4.3-Reno ,
+in 1990.
+.Pp
+Rot13 has also been implemented as a simple tr(1) characters translation.
+.Pp
 This re-implementation was made for the
 .Lk https://github.com/HubTou/PNU PNU project
 .Pp
@@ -110,7 +132,7 @@ This utility is available under the 3-clause BSD license.
 .Sh AUTHORS
 .An Hubert Tournier
 .Pp
-The man page is derived from the FreeBSD project's one.
+This manual page is based on the one written for FreeBSD.
 .Sh CAVEATS
 Unicode characters are left unchanged.
 .Sh SECURITY CONSIDERATIONS

@@ -45,3 +45,4 @@ Unicode characters are left unchanged.
 ## SECURITY CONSIDERATIONS
 This command's only purpose is to obfuscate a text, rather than seriously intending to protect it.
 This last purpose has been deprecated about 2000 years ago!
+

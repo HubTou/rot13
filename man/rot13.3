@@ -1,0 +1,56 @@
+.Dd November 1, 2021
+.Dt ROT13 3
+.Os
+.Sh NAME
+.Nm rot13
+.Nd return the ROTxx version of the given text
+.Sh SYNOPSIS
+.Em import rot13
+.Pp
+.Ft String
+.Fn rot13.rot "String text, Int rotation, String character_set"
+.Sh DESCRIPTION
+The
+.Fn rot
+function returns the ROT13 version of the given
+.Op text .
+.Pp
+All the other parameters also have default values and thus are optional.
+.Pp
+The
+.Op rotation
+parameter sets the character set rotation to be used instead of the default 13.
+.Pp
+The
+.Op character_set
+parameter defines the characters affected by the rotation.
+Possible values are:
+.Bl -bullet
+.It
+"alphabetical" for [A-Za-z] characters. The default value
+.It
+"ASCII" for printable ASCII characters
+.El
+.Sh SEE ALSO
+.Xr rot13 6 ,
+.Xr caesar 6
+.Sh STANDARDS
+The
+.Nm
+library tries to follow the PEP 8 style guide for Python code.
+.Sh HISTORY
+There is a
+.Nm
+codec usable with the str.encode() function in Python, but it is less flexible.
+.Pp
+This library was made for the
+.Lk https://github.com/HubTou/PNU [PNU project]
+.Sh LICENSE
+It is available under the 3-clause BSD license.
+.Sh AUTHORS
+.An Hubert Tournier
+.Sh CAVEATS
+Unicode characters are left unchanged.
+.Sh SECURITY CONSIDERATIONS
+This command's only purpose is to obfuscate a text, rather than seriously intending to protect it.
+This last purpose has been deprecated about 2000 years ago!
