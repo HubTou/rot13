@@ -6,7 +6,7 @@ rot13 — return the ROTXX version of the given text
 ## SYNOPSIS
 **import rot13**
 
-String rot13.**rot**(String *text*, Int *rotation*, String *character_set*)
+String rot13.**rot**(String *text*, Integer *rotation*, String *character_set*)
 
 ## DESCRIPTION
 The **rot** function returns the ROT13 version of the given *text*.

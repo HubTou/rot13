@@ -11,7 +11,7 @@ import signal
 import sys
 
 # Version string used by the what(1) and ident(1) commands:
-ID = "@(#) $Id: rot13 - encrypt or decrypt caesar ciphers v1.0.5 (November 1, 2021) by Hubert Tournier $"
+ID = "@(#) $Id: rot13 - encrypt or decrypt caesar ciphers v1.0.6 (November 6, 2021) by Hubert Tournier $"
 
 # Default parameters. Can be overcome by environment variables, then command line options
 parameters = {
@@ -207,7 +207,7 @@ def main():
     and parameters["Command line arguments"]:
         for argument in arguments:
             if os.path.isfile(argument):
-                with open(argument, "r") as file:
+                with open(argument, "r", encoding="utf-8") as file:
                     for line in file.readlines():
                         print(
                             rot(

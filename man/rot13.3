@@ -1,4 +1,4 @@
-.Dd November 1, 2021
+.Dd November 6, 2021
 .Dt ROT13 3
 .Os
 .Sh NAME
@@ -8,21 +8,25 @@
 .Em import rot13
 .Pp
 .Ft String
-.Fn rot13.rot "String text, Int rotation, String character_set"
+.Fo rot13.rot
+.Fa "String text"
+.Fa "Integer rotation"
+.Fa "String character_set"
+.Fc
 .Sh DESCRIPTION
 The
 .Fn rot
 function returns the ROT13 version of the given
-.Op text .
+.Fa text .
 .Pp
 All the other parameters also have default values and thus are optional.
 .Pp
 The
-.Op rotation
+.Fa rotation
 parameter sets the character set rotation to be used instead of the default 13.
 .Pp
 The
-.Op character_set
+.Fa character_set
 parameter defines the characters affected by the rotation.
 Possible values are:
 .Bl -bullet
@@ -36,8 +40,8 @@ Possible values are:
 .Xr caesar 6
 .Sh STANDARDS
 The
-.Nm
-library tries to follow the PEP 8 style guide for Python code.
+.Lb rot13
+tries to follow the PEP 8 style guide for Python code.
 .Sh HISTORY
 There is a
 .Nm
